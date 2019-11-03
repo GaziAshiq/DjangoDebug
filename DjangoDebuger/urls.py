@@ -16,11 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
-from bluepencil.views import home
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home, name='home')
 ]
 
 if settings.DEBUG:
