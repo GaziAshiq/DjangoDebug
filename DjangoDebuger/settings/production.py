@@ -1,6 +1,6 @@
 from .settings import *
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = config('DEBUG', cast=bool)
 ALLOWED_HOSTS = ['IP-ADDRESS', 'WWW.WEBSITE.COM']
 
 # Password validation
@@ -27,13 +27,13 @@ AUTH_PASSWORD_VALIDATORS = [
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'postgre-db-name',
-        'USER': 'db-user-name',
-        'PASSWORD': 'db-password',
-        'HOST': 'locathost',
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST'),
         'PORT': '',
     }
 }
 
-STRIPE_PUBLIC_KEY = 'live-public-key'
-STRIPE_SECRET_KEY = 'live-secret-key'
+STRIPE_PUBLIC_KEY = config('STRIPE_PUBLIC_KEY')
+STRIPE_SECRET_KEY = config('STRIPE_SECRET_KEY')
